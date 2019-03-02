@@ -1,10 +1,65 @@
 Sets
+    in1 pr_in1 /p11, p21, p31/
+    in2 pr_in2 /p12, p22, p32/
+    in3 pr_in3 /p13, p23, p33/
+    in4 pr_in4 /p14, p24, p34/
+    in5 pr_in5 /p15, p25, p35/
+    in6 pr_in6 /p16, p26, p36/
+    in7 pr_in7 /p17, p27, p37/
+    in8 pr_in8 /p18, p28, p38/
+    
+    p1 plantasPR1  /pl11, pl21/
+    p2 plantasPR2  /pl12, pl22/
+    p3 plantasPR3  /pl13, pl23/
+    p4 plantasPR4  /pl14, pl24/
+    p5 plantasPR5  /pl15, pl25/
+    p6 plantasPR6  /pl16, pl26/
+    p7 plantasPR7  /pl17, pl27/
+    
+    c1 cdPR1 /cd11, cd21/
+    c2 cdPR2 /cd12, cd22/
+    c3 cdPR3 /cd13, cd23/
+    c4 cdPR4 /cd14, cd24/
+    c5 cdPR5 /cd15, cd25/
+    c6 cdPR6 /cd16, cd26/
+    c7 cdPR7 /cd17, cd27/
+    
+    cl1 clPR1 /cl11, cl21, cl31/
+    cl2 clPR2 /cl12, cl22, cl32/
+    cl3 clPR3 /cl13, cl23, cl33/
+    cl4 clPR4 /cl14, cl24, cl34/
+    cl5 clPR5 /cl15, cl25, cl35/
+    cl6 clPR6 /cl16, cl26, cl36/
+    cl7 clPR7 /cl17, cl27, cl37/;
+    
     i1 plantasIntegral  /p1I, p2I/
     i2 plantasFortificado /p1F, p2F/
     j1 ciudadesIntegral /bogI, calI, medI/
     j2 ciudadesFortificado /bogF, calF, medF/;
 
 Parameters
+    capPR1(p1) capacidad de produccion del producto 1
+        /   pl11 5000
+            pl21 6500 /
+    capPR2(p2) capacidad de produccion del producto 2
+        /   pl12 6500
+            pl22 3000 /
+    capPR3(p3) capacidad de produccion del producto 3
+        /   pl13 3500
+            pl23 0 /
+    capPR1(p4) capacidad de produccion del producto 4
+        /   pl14 2500
+            pl24 0 /
+    capPR1(p5) capacidad de produccion del producto 5
+        /   pl15 0
+            pl25 2500 /
+    capPR1(p6) capacidad de produccion del producto 6
+        /   pl16 5000
+            pl26 6500 /
+    capPR1(p1) capacidad de produccion del producto 7
+        /   pl11 5000
+            pl21 6500 /
+    
     capI(i1) capacidad de las plantas para integral
         /   p1I 1250
             p2I 1500 /
