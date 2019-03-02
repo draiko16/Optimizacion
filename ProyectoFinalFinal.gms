@@ -24,13 +24,13 @@ Sets
     c6 cdPR6 /cd16, cd26/
     c7 cdPR7 /cd17, cd27/
     
-    cl1 clPR1 /cl11, cl21, cl31/
-    cl2 clPR2 /cl12, cl22, cl32/
-    cl3 clPR3 /cl13, cl23, cl33/
-    cl4 clPR4 /cl14, cl24, cl34/
-    cl5 clPR5 /cl15, cl25, cl35/
-    cl6 clPR6 /cl16, cl26, cl36/
-    cl7 clPR7 /cl17, cl27, cl37/;
+    cl1 clPR1 /cl11, cl21, cl31, cl31/
+    cl2 clPR2 /cl12, cl22, cl32, cl42/
+    cl3 clPR3 /cl13, cl23, cl33, cl43/
+    cl4 clPR4 /cl14, cl24, cl34, cl44/
+    cl5 clPR5 /cl15, cl25, cl35, cl45/
+    cl6 clPR6 /cl16, cl26, cl36, cl46/
+    cl7 clPR7 /cl17, cl27, cl37, cl47/;
     
     i1 plantasIntegral  /p1I, p2I/
     i2 plantasFortificado /p1F, p2F/
@@ -47,18 +47,48 @@ Parameters
     capPR3(p3) capacidad de produccion del producto 3
         /   pl13 3500
             pl23 0 /
-    capPR1(p4) capacidad de produccion del producto 4
+    capPR4(p4) capacidad de produccion del producto 4
         /   pl14 2500
             pl24 0 /
-    capPR1(p5) capacidad de produccion del producto 5
+    capPR5(p5) capacidad de produccion del producto 5
         /   pl15 0
             pl25 2500 /
-    capPR1(p6) capacidad de produccion del producto 6
-        /   pl16 5000
-            pl26 6500 /
-    capPR1(p1) capacidad de produccion del producto 7
-        /   pl11 5000
-            pl21 6500 /
+    capPR6(p6) capacidad de produccion del producto 6
+        /   pl16 0
+            pl26 1820 /
+    capPR7(p7) capacidad de produccion del producto 7
+        /   pl17 0
+            pl27 3400 /
+            
+    demPR1(cl1) demanda producto 1
+        /   cl11 35
+            cl21 12.74
+            cl31 0
+            cl41 24.5 /
+    demPR2(cl2) demanda producto 1
+        /   cl12 52
+            cl22 0
+            cl32 36/
+    demPR3(cl3) demanda producto 1
+        /   cl13 105
+            cl23 0
+            cl33 /
+    demPR4(cl4) demanda producto 1
+        /   cl14 
+            cl24 
+            cl34 /
+    demPR5(cl5) demanda producto 1
+        /   cl15 
+            cl25 
+            cl35 /
+    demPR6(cl6) demanda producto 1
+        /   cl16 
+            cl26 
+            cl36 /
+    demPR7(cl7) demanda producto 1
+        /   cl17 
+            cl27 
+            cl37 /
     
     capI(i1) capacidad de las plantas para integral
         /   p1I 1250
