@@ -70,13 +70,6 @@ Parameters
         in7 9.8
         in8 5.6 /;
 
-Parameters
-    w(pr, cl) "Sumatorias de precios de productos";
-    w(pr,cl) = preciosPR(pr,cl)*demandaPR(pr,cl);
-Parameter
-    q "Sumatorias de precios de productos";
-    q = sum((pr,cl), preciosPR(pr,cl)*demandaPR(pr,cl));
-
 Variables
     reqIn(p, i, pl) "Envios de insumos a las plantas"
     x(pl, pr, cd) "Envios de plantas a cd por producto"
@@ -87,15 +80,16 @@ Positive Variables reqIn, x,y;
 
 Equations
     ganancias "Funcion objetivo"
+    enviosPR(i,  pl) "Revisa los requerimientos de insumos para las plantas"
     enviosPL(pl, pr) "Revisa los limites de produccion"
     inter(cd, pr) "Revisa que los cd entreguen todos los productos que reciban"
     demandaCL(pr, cl) "Revisa el cumplimiento de las demandas"  ;
 
-ganancias.. Z =e= sum((pr,cl), preciosPR(pr, cl)* sum(cd, y(cd, pr, cl)))
+ganancias.. Z =e= sum((pr,cl), preciosPR(pr, cl)*sum(cd, y(cd, pr, cl)))
 *sumatoria de los costos de los insumos
-                -sum(i, sum((p, pl), reqIn(p,i,pl)*cdi(i)))
+                -sum(i, sum((p, pl, pr), reqIn(p,i,pl)*cdi(i)))
 *sumatoria de los costos de envios desde los proveedores hasta las plantas
-                -sum((p,pl), sum(i, reqIn(p,i,pl)) * enppl(p,pl))
+                -sum((p, pl), sum((i,pr), reqIn(p,i,pl)) * enppl(p,pl))
 *sumatoria de los costos de envios desde las plantas hasta los cd
                 -sum((pl,cd), sum(pr, x(pl,pr,cd)) * enplcd(pl,cd))
 *sumatoria de los costos de envios desde los cd hasta los clientes
@@ -114,6 +108,11 @@ enviosPL(pl, pr)..  sum(cd,x(pl,pr,cd)) =l= cdp(pl, pr);
 *le llegó a cada cliente para ver claramente cuantos productos
 *pasaron por los CD y se comprueba que sean los mismos
 inter(cd,pr).. sum(pl,x(pl, pr, cd)) =e= sum((cl),y(cd,pr,cl));
+
+*Se unifica los envios a los diferentes CD, para saber la cantidad de productos
+*por cada planta, se multiplican por la matriz de requerimientos y se comprueba que de
+*igual a los requerimientos de productos a producir
+enviosPR(i,  pl).. sum((cd,pr), x(pl, pr, cd)*rdi(pr, i)) =e= sum(p, reqIn(p, i, pl));
 
 Model Insumos /all/;
 Solve Insumos using lp maximizing Z;
